@@ -15,7 +15,7 @@
  * @subpackage action
  * @author     Shunsuke Watanabe <watanabe@craftgear.net>
  */
-class diaryActions extends opJsonApiActions
+class diaryActions extends SmtDiaryActions
 {
   public function preExecute()
   {
