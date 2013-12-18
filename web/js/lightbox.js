@@ -48,8 +48,7 @@ lightbox = new Lightbox options
   LightboxOptions = (function() {
 
     function LightboxOptions() {
-      this.fileLoadingImage = '/opTimelinePlugin/images/loading.gif';
-      this.fileCloseImage = '/opTimelinePlugin/images/close.png';
+      this.fileLoadingImage = '/images/ajax-loader.gif';
       this.resizeDuration = 700;
       this.fadeDuration = 500;
       this.labelImage = "Image";
@@ -121,9 +120,7 @@ lightbox = new Lightbox options
         "class": 'lb-closeContainer'
       }).append($('<a/>', {
         "class": 'lb-close'
-      }).append($('<img/>', {
-        src: this.options.fileCloseImage
-      }))))))).appendTo($('body'));
+      })))))).appendTo($('body'));
       $('#lightboxOverlay').hide().on('click', function(e) {
         _this.end();
         return false;
