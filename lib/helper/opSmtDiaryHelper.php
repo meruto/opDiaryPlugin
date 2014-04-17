@@ -28,6 +28,10 @@ function op_smt_diary_get_public_flag_list($publicFlags, $publicFlag)
 
 function op_smt_diary_get_textarea_buttons()
 {
+  $relativeUrlRoot = sfContext::getInstance()->getRequest()->getRelativeUrlRoot();
+  $js = sprintf('function op_get_relative_uri_root() { return "%s"; }', $relativeUrlRoot);
+  echo javascript_tag($js);
+
   return array(
     '&nbsp;'.link_to_function(image_tag('/images/deco_op_emoji_docomo.gif'), "$('#diary_body').opEmoji('togglePallet', 'epDocomo')").'&nbsp;',
     link_to_function(image_tag('/images/deco_op_b.gif'), "op_mce_insert_tagname('diary_body', 'op:b')").'&nbsp;',
