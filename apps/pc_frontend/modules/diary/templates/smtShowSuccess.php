@@ -50,7 +50,7 @@ op_smt_use_javascript('/opDiaryPlugin/js/lightbox.js', 'last');
 <script id="commentEntry" type="text/x-jquery-tmpl">
   <div id="comment">
     <div class="row">
-      <div class="gadget_header"><?php echo __('Comment') ?></div>
+      <div class="gadget_header"><?php echo __('Comments') ?></div>
     </div>
     <!-- //commentForm -->
     <div class="row" id="comment-form">
