@@ -100,8 +100,23 @@ ViewPrototype = {
 
   render: null,
 
-  getCreatedAt: function () {
-    var date = this.data.created_at.split(' ')[0].split('-')
-    return date[1] + '月' + date[2] + '日';
+  getCreatedAt: function (time, option) {
+    var d = new Date(time);
+    var date = '';
+    if (option.indexOf('y') > -1) {
+      date += d.getFullYear() + '年';
+    }
+    if (option.indexOf('m') > -1) {
+      date += d.getMonth() + '月';
+    }
+    if (option.indexOf('d') > -1) {
+      date += d.getDate() + '日';
+    }
+    if (option.indexOf('hs') > -1) {
+      date += (d.getHours() < 10) ? ('0' + d.getHours()) : d.getHours() + ':';
+      date += (d.getMinutes() < 10) ? ('0' + d.getMinutes()) : d.getMinutes();
+    }
+
+    return date;
   },
 };

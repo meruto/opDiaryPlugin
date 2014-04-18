@@ -18,7 +18,7 @@ $(function(){
 
 <script id="diary_<?php echo $target ?>_entry" type="text/x-jquery-tmpl">
 <div class="row">
-  <div class="span3">${$item.getCreatedAt()}</div>
+  <div class="span3">${$item.getCreatedAt(created_at, "md")}</div>
   <div class="span9"><a href="<?php echo public_path('diary') ?>/${id}">${title}</a>
   <?php if ('list' == $target || 'list_friend' == $target): ?>
   (<a href="${member.profile_url}">${member.name}</a>)

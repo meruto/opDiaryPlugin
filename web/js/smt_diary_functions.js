@@ -235,14 +235,24 @@ function toggleSubmitState (args) {
   );
 }
 
-function getCreatedAt (option) {
-  if ('ago' == option) {
-    if (this.data.ago.length < 10) {
-      return this.data.ago;
-    }
+function getCreatedAt (time, option) {
+  var d = new Date(time);
+  var date = '';
+  if (option.indexOf('y') > -1) {
+    date += d.getFullYear() + '年';
   }
-  var date = this.data.created_at.split(' ')[0].split('-')
-  return date[1] + '月' + date[2] + '日';
+  if (option.indexOf('m') > -1) {
+    date += d.getMonth() + '月';
+  }
+  if (option.indexOf('d') > -1) {
+    date += d.getDate() + '日';
+  }
+  if (option.indexOf('hs') > -1) {
+    date += (d.getHours() < 10) ? ('0' + d.getHours()) : d.getHours() + ':';
+    date += (d.getMinutes() < 10) ? ('0' + d.getMinutes()) : d.getMinutes();
+  }
+
+  return date;
 }
 
 function isInputValue (arg) {
