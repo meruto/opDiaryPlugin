@@ -83,7 +83,7 @@ function op_api_diary($diary, $option = null)
       'member'      => op_api_member($diary->getMember()),
       'title'       => $diary->title,
       'public_flag' => $diary->getPublicFlagLabel(),
-      'created_at'  => $diary->created_at,
+      'created_at'  => date('r', strtotime($diary->getCreatedAt())),
     );
 
     if ('short' == $option)
@@ -140,7 +140,7 @@ function op_api_diary_comment($comment)
       'member'     => op_api_member($comment->getMember()),
       'body'       => nl2br(op_auto_link_text($comment->getBody())),
       'ago'        => op_format_activity_time(strtotime($comment->getCreatedAt())),
-      'created_at' => $comment->getCreatedAt(),
+      'created_at'  => date('r', strtotime($comment->getCreatedAt())),
       'images'     => $images
     );
   }

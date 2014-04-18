@@ -32,7 +32,7 @@ echo javascript_tag('
 
   <div class="span9 diary-information">
     <span class="title">${title}</span>
-    <span class="ago">${$item.getCreatedAt()}</span>
+    <span class="ago">${$item.getCreatedAt(created_at, "ymd")}</span>
     <div class="clearfix"></div>
     <span class="body">{{html body_short}}</span>
     <span class="view"><a href="<?php echo public_path('diary') ?>/${id}" class="readmore"><?php echo __('View this diary') ?></a></span>
