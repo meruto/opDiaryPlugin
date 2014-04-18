@@ -4,10 +4,18 @@
 
       <div class="comment-member row">
         <span class="member-image">
+        {{if member.id}}
           <a href="${member.profile_url}"><img src="${member.profile_image}" alt="${member.name}" /></a>
+        {{else}}
+          <img src="${member.profile_image}" alt="-" />
+        {{/if}}
         </span>
         <span class="member-name">
-          <a href="${member.profile_url}">{{if member.screen_name}} ${member.screen_name} {{else}} ${member.name} {{/if}}</a>
+        {{if member.name}}
+          <a href="${member.profile_url}">${member.name}</a>
+        {{else}}
+          -
+        {{/if}}
         </span>
       </div>
 
