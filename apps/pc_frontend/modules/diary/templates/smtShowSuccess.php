@@ -61,7 +61,10 @@ op_smt_use_javascript('/opDiaryPlugin/js/lightbox.js', 'last');
           {{/if}}
           <div id='comment-error' class="row hide"></div>
           <textarea id="commentBody" name="body" placeholder="<?php echo __('Post a diary comment') ?>"></textarea>
+          <?php $ua = sfContext::getInstance()->getRequest()->getHttpHeader('User-Agent') ?>
+          <?php if (!preg_match('/Linux; U; Android 2/', $ua)): ?>
           <input type="file" name="comment-image" />
+          <?php endif; ?>
           <input type="submit" name="submit" class="btn btn-primary btn-mini comment-button" id="postComment" value="<?php echo __('Post') ?>" />
         </form>
       </div>

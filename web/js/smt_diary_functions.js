@@ -22,6 +22,10 @@ function getParams (target) {
       }
     });
 
+    if (isAndroid2()) {
+      return json;
+    }
+
     var form = $('form');
     var fd = new FormData(form[0]);
 
@@ -44,6 +48,10 @@ function getParams (target) {
     params.body = $('textarea#commentBody').val();
     var image = $('input[name=comment-image]').val();
     params['comment-iamge'] = image ? image : undefined;
+
+    if (isAndroid2()) {
+      return params;
+    }
 
     var form = $('form.comment-form').get()[0];
     var fd = new FormData(form);
@@ -121,11 +129,12 @@ function postDiary (params) {
     toggleSubmitState(['#loading', 'input[name=submit]']);
   }
 
+  var isA2 = isAndroid2();
   $.ajax({
     url: openpne.apiBase + "diary/post.json",
     type: 'POST',
-    processData: false,
-    contentType: false,
+    processData: (isA2) ? true : false,
+    contentType: (isA2) ? "application/x-www-form-urlencoded" : false,
     data: params,
     dataType: 'json',
     success: success,
@@ -164,11 +173,13 @@ function postDiaryComment (params) {
   };
 
   $('#comment-error').hide();
+
+  var isA2 = isAndroid2();
   $.ajax({
     url: openpne.apiBase + "diary_comment/post.json",
     type: 'POST',
-    processData: false,
-    contentType: false,
+    processData: (isA2) ? true : false,
+    contentType: (isA2) ? "application/x-www-form-urlencoded" : false,
     data: params,
     dataType: 'json',
     success: success,
@@ -251,4 +262,9 @@ function isInputValue (arg) {
   }
 
   return true;
+}
+
+function isAndroid2 () {
+  var UA = navigator.userAgent;
+  return UA.indexOf('Linux; U; Android 2') > -1
 }
