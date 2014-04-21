@@ -310,6 +310,11 @@
         <source>over %years% years ago</source>
         <target>%years%年以上前</target>
       </trans-unit>
+      <trans-unit id="">
+        <source>Android ver.2.x does not support post image.</source>
+        <target>Android ver.2.xは画像投稿に対応していません。</target>
+      </trans-unit>
+
     </body>
   </file>
 </xliff>

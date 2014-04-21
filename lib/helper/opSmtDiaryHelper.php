@@ -41,6 +41,12 @@ function op_smt_diary_get_textarea_buttons()
 
 function op_smt_diary_get_post_image_form($diaryImages)
 {
+  $ua = sfContext::getInstance()->getRequest()->getHttpHeader('User-Agent');
+  if (preg_match('/Linux; U; Android 2/', $ua))
+  {
+    return array("<div>".__('Android ver.2.x does not support post image.')."</div>");
+  }
+
   $html = array();
   if (!sfConfig::get('app_diary_is_upload_images'))
   {
