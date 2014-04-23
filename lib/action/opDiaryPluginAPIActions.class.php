@@ -118,6 +118,8 @@ class opDiaryPluginAPIActions extends opJsonApiActions
     {
       throw new opDiaryPluginAPIException('invalid diary_id');
     }
+    //access block
+    $this->forward403If($this->isAccessBlockFromMember($diary->getMemberId()));
 
     try
     {
