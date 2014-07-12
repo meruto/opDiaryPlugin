@@ -7,6 +7,9 @@ op_smt_use_stylesheet('/opDiaryPlugin/css/lightbox.css', 'last');
 op_smt_use_javascript('/opDiaryPlugin/js/lightbox.js', 'last');
 ?>
 
+<?php $relativeUrl = sfContext::getInstance()->getRequest()->getRelativeUrlRoot() ?>
+<input type="hidden" value="<?php echo $relativeUrl ?>" id="relativeUrl" />
+
 <script id="diaryEntry" type="text/x-jquery-tmpl">
   <div class="row">
     <div class="gadget_header span12 title">${title}<br />(${$item.getCreatedAt()}の日記)</div>

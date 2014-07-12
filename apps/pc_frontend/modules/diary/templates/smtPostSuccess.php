@@ -30,6 +30,9 @@ op_smt_use_stylesheet('/opDiaryPlugin/css/lightbox.css', 'last');
 op_smt_use_javascript('/opDiaryPlugin/js/lightbox.js', 'last');
 ?>
 
+<?php $relativeUrl = sfContext::getInstance()->getRequest()->getRelativeUrlRoot() ?>
+<input type="hidden" value="<?php echo $relativeUrl ?>" id="relativeUrl" />
+
 <script type="text/javascript">
 $(function(){
   $("#diary_body").opEmoji();

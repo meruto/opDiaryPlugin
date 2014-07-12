@@ -107,7 +107,7 @@ function getComments (params) {
 
 function postDiary (params) {
   var success = function (res) {
-    window.location = '/diary/' + res.data.id;
+    window.location = $('#relativeUrl').val() + '/diary/' + res.data.id;
   }
   var error = function (res) {
     console.log(res);
@@ -135,7 +135,7 @@ function postDiary (params) {
 
 function deleteDiary (params) {
   var success = function (res) {
-    window.location = '/diary/listMember/' + res.data.member.id;
+    window.location = $('#relativeUrl').val() + '/diary/listMember' + res.data.member.id;
   };
 
   ajax({
