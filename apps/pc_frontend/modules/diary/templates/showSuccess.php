@@ -1,3 +1,7 @@
+<?php use_javascript('/opDiaryPlugin/js/lightbox.js', 'last') ?>
+<?php use_stylesheet('/opDiaryPlugin/css/lightbox.css', 'last') ?>
+
+
 <?php use_helper('opDiary', 'Text') ?>
 
 <?php decorate_with('layoutB') ?>
@@ -30,7 +34,7 @@
 <?php $images = $diary->getDiaryImagesJoinFile() ?>
 <ul class="photo">
 <?php foreach ($images as $image): ?>
-<li><a href="<?php echo sf_image_path($image->File) ?>" target="_blank"><?php echo image_tag_sf_image($image->File, array('size' => '120x120')) ?></a></li>
+<li><a href="<?php echo sf_image_path($image->File) ?>" rel="lightbox"><?php echo image_tag_sf_image($image->File, array('size' => '120x120')) ?></a></li>
 <?php endforeach; ?>
 </ul>
 <?php endif; ?>
